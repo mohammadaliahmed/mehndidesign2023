@@ -2,6 +2,8 @@ package com.zik.mehndi.simple.offline.designs.Activites;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -27,47 +29,43 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageView settings;
-    List<CategoryModel> itemList=new ArrayList<>();
+    List<CategoryModel> itemList = new ArrayList<>();
     CategoriesAdapter adapter;
     RecyclerView recycler;
     BillingClient billingClient;
 
     AdView adView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportActionBar().hide();
-        recycler=findViewById(R.id.recycler);
-        adView=findViewById(R.id.adView);
-        settings=findViewById(R.id.settings);
+        recycler = findViewById(R.id.recycler);
+        adView = findViewById(R.id.adView);
+        getSupportActionBar().setElevation(0);
 
-        AdRequest adRequest = new AdRequest.Builder().build();
-        adView.loadAd(adRequest);
-        settings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, Settings.class));
-            }
-        });
+        if (!SharedPrefs.getPremium().equalsIgnoreCase("1")) {
+            AdRequest adRequest = new AdRequest.Builder().build();
+            adView.loadAd(adRequest);
+        }
+
         setUpList();
-        adapter=new CategoriesAdapter(this,itemList);
-        recycler.setLayoutManager(new GridLayoutManager(this,2));
+        adapter = new CategoriesAdapter(this, itemList);
+        recycler.setLayoutManager(new GridLayoutManager(this, 2));
         recycler.setAdapter(adapter);
 //        checkSubscription();
 
     }
 
     private void setUpList() {
-        itemList.add(new CategoryModel("Back Hand","backhand",R.drawable.backhand7));
-        itemList.add(new CategoryModel("Front Hand","fronthand",R.drawable.fronthand7));
-        itemList.add(new CategoryModel("Bridal","bridal",R.drawable.bridal1));
-        itemList.add(new CategoryModel("Foot","foot",R.drawable.foot1));
-        itemList.add(new CategoryModel("Finger","finger",R.drawable.finger1));
-        itemList.add(new CategoryModel("Arm","arm",R.drawable.arm1));
-        itemList.add(new CategoryModel("Gol Tikki","goltiki",R.drawable.goltiki1));
-        itemList.add(new CategoryModel("Eid Special","eid",R.drawable.eid1));
+        itemList.add(new CategoryModel("Back Hand", "backhand", R.drawable.backhand7));
+        itemList.add(new CategoryModel("Front Hand", "fronthand", R.drawable.fronthand7));
+        itemList.add(new CategoryModel("Bridal", "bridal", R.drawable.bridal1));
+        itemList.add(new CategoryModel("Foot", "foot", R.drawable.foot1));
+        itemList.add(new CategoryModel("Finger", "finger", R.drawable.finger1));
+        itemList.add(new CategoryModel("Arm", "arm", R.drawable.arm1));
+        itemList.add(new CategoryModel("Gol Tikki", "goltiki", R.drawable.goltiki1));
+        itemList.add(new CategoryModel("Eid Special", "eid", R.drawable.eid1));
     }
 
     void checkSubscription() {
@@ -100,5 +98,33 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+
+
+            finish();
+        }
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            // Handle search icon click event
+            startActivity(new Intent(MainActivity.this, Settings.class));
+            return true;
+        }  if (id == R.id.action_no_ads) {
+            startActivity(new Intent(MainActivity.this, SubAct.class));
+            // Handle search icon click event
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.home_menu, menu);
+
+
+        return true;
     }
 }

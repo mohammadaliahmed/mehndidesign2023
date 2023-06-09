@@ -16,6 +16,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.appopen.AppOpenAd;
 import com.zik.mehndi.simple.offline.designs.R;
+import com.zik.mehndi.simple.offline.designs.Utils.SharedPrefs;
 
 
 public class Splash extends AppCompatActivity {
@@ -41,7 +42,9 @@ public class Splash extends AppCompatActivity {
             }
         });
 
-        LoadAd();
+        if(!SharedPrefs.getPremium().equalsIgnoreCase("1")) {
+            LoadAd();
+        }
         Animation bounce;
 
         bounce = AnimationUtils.loadAnimation(Splash.this, R.anim.btn_press);

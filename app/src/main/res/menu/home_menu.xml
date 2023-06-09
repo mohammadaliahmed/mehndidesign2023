@@ -4,11 +4,11 @@
     <item
         android:id="@+id/action_no_ads"
         android:icon="@drawable/ic_no_ads"
-        android:title="Remove Ads"
+        android:title="No Ads"
         app:showAsAction="always" />
     <item
-        android:id="@+id/action_liked"
-        android:icon="@drawable/heart_filled"
-        android:title="Refresh"
+        android:id="@+id/action_settings"
+        android:icon="@drawable/setting"
+        android:title="Settings"
         app:showAsAction="always" />
 </menu>

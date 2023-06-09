@@ -36,8 +36,10 @@ public class ViewPictures extends AppCompatActivity {
         setContentView(R.layout.activity_view_pictures);
         getSupportActionBar().hide();
         adView=findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        adView.loadAd(adRequest);
+        if(!SharedPrefs.getPremium().equalsIgnoreCase("1")) {
+            AdRequest adRequest = new AdRequest.Builder().build();
+            adView.loadAd(adRequest);
+        }
         viewPager = findViewById(R.id.viewpager);
         imgsList = getIntent().getIntegerArrayListExtra("imgs");
         share = findViewById(R.id.share);

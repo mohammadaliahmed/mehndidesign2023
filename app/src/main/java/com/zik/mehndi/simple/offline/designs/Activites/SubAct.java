@@ -94,10 +94,7 @@ public class SubAct extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerview);
         loadProducts = findViewById(R.id.loadProducts);
 
-        productIds.add(0, "weekly");
-        productIds.add(1, "monthly");
-        productIds.add(2, "yearly");
-        productIds.add(3, "lifetime");
+        productIds.add(0, "lifetime");
 
         adapter = new SubscriptionAdapter(getApplicationContext(), productDetailsList, new SubscriptionAdapter.SubscriptionAdapterCallback() {
             @Override
@@ -106,7 +103,7 @@ public class SubAct extends AppCompatActivity {
             }
         });
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new GridLayoutManager(SubAct.this, 2));
+        recyclerView.setLayoutManager(new GridLayoutManager(SubAct.this, 1));
         recyclerView.setAdapter(adapter);
         continuewith.setPaintFlags(continuewith.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
@@ -121,7 +118,7 @@ public class SubAct extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String url = "https://chatgpt-99e53-default-rtdb.firebaseio.com/terms.json";
+                String url = "https://logo-maker-3d-24b00-default-rtdb.firebaseio.com/privacyMehndi.json";
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse(url));
                 startActivity(intent);
@@ -138,7 +135,7 @@ public class SubAct extends AppCompatActivity {
             public void onBillingSetupFinished(@NonNull BillingResult billingResult) {
                 if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK) {
                     // The BillingClient is ready. You can query purchases here.
-                    showProducts();
+                    showLifetimeProducts();
                 }
             }
 
@@ -181,51 +178,9 @@ public class SubAct extends AppCompatActivity {
 
     }
 
-    @SuppressLint("SetTextI18n")
-    void showProducts() {
 
-        ImmutableList<QueryProductDetailsParams.Product> productList = ImmutableList.of(
-                //Product 1
-                QueryProductDetailsParams.Product.newBuilder()
-                        .setProductId("weekly")
-                        .setProductType(BillingClient.ProductType.SUBS)
-                        .build(),
 
-                //Product 2
-                QueryProductDetailsParams.Product.newBuilder()
-                        .setProductId("monthly")
-                        .setProductType(BillingClient.ProductType.SUBS)
-                        .build()
-                ,
-                QueryProductDetailsParams.Product.newBuilder()
-                        .setProductId("yearly")
-                        .setProductType(BillingClient.ProductType.SUBS)
-                        .build()
 
-        );
-
-        QueryProductDetailsParams params = QueryProductDetailsParams.newBuilder()
-                .setProductList(productList)
-                .build();
-
-        billingClient.queryProductDetailsAsync(
-                params,
-                (billingResult, prodDetailsList) -> {
-                    if (prodDetailsList.size() > 0) { // checking if there's a product returned then set the product(s)
-                        // on the recycle viewer
-                        saveOfferToken(prodDetailsList);
-                        // Process the result
-                        productDetailsList.clear();
-                        handler.postDelayed(() -> {
-
-                            productDetailsList.addAll(prodDetailsList);
-                            showLifetimeProducts();
-
-                        }, 2000);
-                    }
-                }
-        );
-    }
 
     private void saveOfferToken(List<ProductDetails> prodDetailsList) {
         if (prodDetailsList.size() == productIds.size()) { // checking if the return products are of the same size we defined in our productId array
@@ -389,7 +344,7 @@ public class SubAct extends AppCompatActivity {
     private void showBottomSheetDialog() {
 
 
-        String url = "https://play.google.com/store/account/subscriptions";
+        String url = "https://play.google.com/store/account/orderhistory";
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(url));
         startActivity(intent);

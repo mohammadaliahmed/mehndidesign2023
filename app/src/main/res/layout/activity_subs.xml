@@ -3,31 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000">
+    android:background="@color/colorPrimary">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_gravity="center"
-            android:foreground="#7E040303"
-            android:scaleType="centerCrop"
-            android:src="@drawable/bg" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_gravity="center"
-            android:layout_marginTop="-50dp"
-            android:text=""
-            android:textColor="@color/colorAccent"
-            android:textSize="25sp"
-            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -96,7 +78,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:layout_weight="4"
-                    android:text="Smartest AI model"
+                    android:text="Mehndi Designs"
                     android:textColor="#fff"
                     android:textSize="16sp" />
 
@@ -141,7 +123,7 @@
 
                     android:layout_margin="5dp"
                     android:layout_weight="4"
-                    android:text="Unlimited Questions &amp; Answers"
+                    android:text="Premium Designs"
                     android:textColor="#fff"
                     android:textSize="16sp" />
 
@@ -185,7 +167,7 @@
                     android:layout_margin="5dp"
                     android:layout_weight="4"
 
-                    android:text="AD - FREE Example"
+                    android:text="AD - FREE Experience"
                     android:textColor="#fff"
                     android:textSize="16sp" />
 
@@ -218,45 +200,6 @@
                 android:layout_height="1dp"
                 android:layout_margin="5dp"
                 android:background="@color/colorAccent" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="6">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:layout_weight="4"
-
-                    android:text="Priority access to new features"
-                    android:textColor="#fff"
-                    android:textSize="16sp" />
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="18dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-
-                    android:src="@drawable/ic_cross"
-                    android:textColor="#fff"
-                    android:textSize="16sp" />
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="18dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-
-                    android:src="@drawable/ic_tick"
-                    android:textColor="#fff"
-                    android:textSize="16sp" />
-
-            </LinearLayout>
 
 
         </LinearLayout>
@@ -265,7 +208,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Choose your plan"
+            android:text="Choose your plan ↓"
             android:textColor="@color/colorAccent"
             android:textSize="25sp"
             android:textStyle="bold" />
@@ -296,7 +239,7 @@
             android:padding="10dp"
             android:text="Continue with limited version"
             android:textColor="@color/white"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -347,14 +290,16 @@
                 android:layout_height="wrap_content"
 
                 android:layout_gravity="center"
-                android:text="Manage Subscriptions"
+                android:text="Manage Purchases"
                 android:textColor="@color/colorAccent" />
         </LinearLayout>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
+            android:textStyle="bold"
             android:gravity="center"
             android:text="Disclaimer"
 
@@ -363,16 +308,17 @@
 
         <TextView
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
-            android:layout_height="wrap_content"
             android:text="1) Payment will be charged to user's Google Play account upon confirmation of purchase and automatically renew unless cancelled.
 \n\n2) No refunds will be provided for unused portion of subscription period.
 \n\n3) Subscription is for personal use only and unauthorized use will result in immediate termination.
 \n\n4)User is solely responsible for content created or shared using the app while subscribed.
 \n\n5) We reserve the right to modify or terminate subscription at any time without notice."
-            android:textColor="#aaa"
+            android:textColor="#fff"
             android:textSize="11sp" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -383,6 +329,7 @@
 
             android:textColor="#DFDFDF"
             android:textSize="16sp" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
