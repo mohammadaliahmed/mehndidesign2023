@@ -37,6 +37,7 @@
         <activity android:name=".Activites.Settings" />
         <activity android:name=".Activites.ViewCategory" />
         <activity android:name="com.zik.mehndi.simple.offline.designs.Activites.ViewLiked" />
+        <activity android:name="com.zik.mehndi.simple.offline.designs.Activites.ViewPictures" />
 
         <meta-data
             android:name="preloaded_fonts"

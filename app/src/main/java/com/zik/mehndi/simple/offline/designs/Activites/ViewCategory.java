@@ -11,6 +11,8 @@ import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.zik.mehndi.simple.offline.designs.Adapters.ImagesAdapter;
 import com.zik.mehndi.simple.offline.designs.Models.CategoryModel;
 import com.zik.mehndi.simple.offline.designs.R;
@@ -28,6 +30,7 @@ public class ViewCategory extends AppCompatActivity {
     CategoryModel categoryModel;
     ImagesAdapter adapter;
     private List<Integer> imgsList = new ArrayList<>();
+    AdView adView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,9 @@ public class ViewCategory extends AppCompatActivity {
             getSupportActionBar().setElevation(0);
 
         }
+        adView=findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
         categoryModel = (CategoryModel) getIntent().getSerializableExtra("category");
         this.setTitle(categoryModel.getCategoryName());
 

@@ -1,5 +1,7 @@
 package com.zik.mehndi.simple.offline.designs.Adapters;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Shader;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,9 +12,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.zik.mehndi.simple.offline.designs.Activites.MainActivity;
+import com.zik.mehndi.simple.offline.designs.Activites.ViewPictures;
 import com.zik.mehndi.simple.offline.designs.Models.CategoryModel;
 import com.zik.mehndi.simple.offline.designs.R;
+import com.zik.mehndi.simple.offline.designs.Utils.SharedPrefs;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -22,11 +29,16 @@ public class ImagesAdapter extends RecyclerView.Adapter<ImagesAdapter.Viewholder
     List<Integer> itemList;
     ImagesAdapterCallback callback;
     boolean favorites;
+    HashMap<Integer,Integer> likeMap;
     public ImagesAdapter(Context context, List<Integer> itemList,boolean favorites,ImagesAdapterCallback callback) {
         this.callback = callback;
         this.favorites = favorites;
         this.context = context;
         this.itemList = itemList;
+        likeMap= SharedPrefs.getLikedMap();
+        if(likeMap==null){
+            likeMap=new HashMap<>();
+        }
     }
     public void setItemList(List<Integer> itemList) {
         this.itemList = itemList;
@@ -47,6 +59,14 @@ public class ImagesAdapter extends RecyclerView.Adapter<ImagesAdapter.Viewholder
         Integer image = itemList.get(position);
         Glide.with(context).load(image).into(holder.image);
 
+        if(likeMap.containsKey(image)) {
+            holder.heartImageView.setImageResource(R.drawable.heart_filled);
+            holder.heartImageView.setTag(true);
+        }else{
+            holder.heartImageView.setImageResource(R.drawable.ic_heart);
+            holder.heartImageView.setTag(false);
+        }
+
         holder.heartImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,13 +83,25 @@ public class ImagesAdapter extends RecyclerView.Adapter<ImagesAdapter.Viewholder
                 }
             }
         });
-        if(favorites) {
-            holder.heartImageView.setImageResource(R.drawable.heart_filled);
-            holder.heartImageView.setTag(true);
-        }else{
-            holder.heartImageView.setImageResource(R.drawable.ic_heart);
-            holder.heartImageView.setTag(false);
-        }
+//        if(favorites) {
+//            holder.heartImageView.setImageResource(R.drawable.heart_filled);
+//            holder.heartImageView.setTag(true);
+//        }else{
+//            holder.heartImageView.setImageResource(R.drawable.ic_heart);
+//            holder.heartImageView.setTag(false);
+//        }
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ViewPictures.class);
+                intent.putExtra("position",position);
+                intent.putIntegerArrayListExtra("imgs", (ArrayList<Integer>) itemList);
+                context.startActivity(intent);
+
+
+            }
+        });
 
 
 
