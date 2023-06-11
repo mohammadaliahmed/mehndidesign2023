@@ -32,7 +32,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activites.MainActivity" />
-        <activity android:name=".Activites.ChatActivity" />
         <activity android:name=".Activites.SubAct" />
         <activity android:name=".Activites.Settings" />
         <activity android:name=".Activites.ViewCategory" />
@@ -44,7 +43,7 @@
             android:resource="@array/preloaded_fonts" />
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-9752886481636378~2125149004" />
+            android:value="ca-app-pub-1990673737711650~3927715991" />
 
     </application>
 

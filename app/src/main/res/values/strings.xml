@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">Mehndi simple designs 2023</string>
-    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>//test
-    <string name="interstital_ad_unit_id">ca-app-pub-3940256099942544/1033173712</string>//test
-    <string name="reward_ad_unit_id">ca-app-pub-3940256099942544/5224354917</string>//test
-    <string name="open_ad_unit_id">ca-app-pub-3940256099942544/3419835294</string>//test
+    <string name="banner_ad_unit_id">ca-app-pub-1990673737711650/1201518298</string>//test
+    <string name="interstital_ad_unit_id">ca-app-pub-1990673737711650/4517962687</string>//test
+    <string name="reward_ad_unit_id">ca-app-pub-1990673737711650/8386669905</string>//test
+    <string name="open_ad_unit_id">ca-app-pub-1990673737711650/7871664588</string>//test
 
 
     <string name="product_id">premium</string>

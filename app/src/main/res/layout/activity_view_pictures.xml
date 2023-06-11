@@ -48,7 +48,7 @@
       android:layout_gravity="center"
 
       android:visibility="visible"
-      ads:adSize="FULL_BANNER"
+      ads:adSize="BANNER"
       ads:adUnitId="@string/banner_ad_unit_id" />
 
 </RelativeLayout>
