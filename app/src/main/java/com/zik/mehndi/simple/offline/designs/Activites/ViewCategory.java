@@ -29,6 +29,7 @@ import com.zik.mehndi.simple.offline.designs.Utils.CommonUtils;
 import com.zik.mehndi.simple.offline.designs.Utils.SharedPrefs;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -66,7 +67,7 @@ public class ViewCategory extends AppCompatActivity {
         recycler = findViewById(R.id.recycler);
         setUpList();
 
-
+        Collections.shuffle(imgsList);
         adapter = new ImagesAdapter(this, imgsList, false, new ImagesAdapter.ImagesAdapterCallback() {
             @Override
             public void OnLikedUnliked(Integer img, boolean like) {
@@ -80,6 +81,7 @@ public class ViewCategory extends AppCompatActivity {
                     map.remove(img);
                 }
                 SharedPrefs.setLikedMap(map);
+                LoadInterstritial();
             }
         });
         recycler.setLayoutManager(new GridLayoutManager(this, 2));
@@ -90,55 +92,94 @@ public class ViewCategory extends AppCompatActivity {
 
     private void setUpList() {
         if (categoryModel.getShortName().equalsIgnoreCase("arm")) {
-            for (int i = 1; i <= 17; i++) {
-                int resourceId = getResources().getIdentifier("arm" + i, "drawable", getPackageName());
-                imgsList.add(resourceId);
+            for (int i = 1; i <= 25; i++) {
+                try {
+
+                    int resourceId = getResources().getIdentifier("arm" + i, "drawable", getPackageName());
+                    imgsList.add(resourceId);
+                } catch (Exception e) {
+
+                }
             }
         }
         if (categoryModel.getShortName().equalsIgnoreCase("backhand")) {
-            for (int i = 1; i <= 20; i++) {
-                int resourceId = getResources().getIdentifier("backhand" + i, "drawable", getPackageName());
-                imgsList.add(resourceId);
+            for (int i = 1; i <= 28; i++) {
+                try {
+
+                    int resourceId = getResources().getIdentifier("backhand" + i, "drawable", getPackageName());
+                    imgsList.add(resourceId);
+                } catch (Exception e) {
+
+                }
             }
         }
 
         if (categoryModel.getShortName().equalsIgnoreCase("bridal")) {
-            for (int i = 1; i <= 19; i++) {
-                int resourceId = getResources().getIdentifier("bridal" + i, "drawable", getPackageName());
-                imgsList.add(resourceId);
+            for (int i = 1; i <= 27; i++) {
+                try {
+
+                    int resourceId = getResources().getIdentifier("bridal" + i, "drawable", getPackageName());
+                    imgsList.add(resourceId);
+                } catch (Exception e) {
+
+                }
             }
         }
         if (categoryModel.getShortName().equalsIgnoreCase("eid")) {
-            for (int i = 1; i <= 20; i++) {
-                int resourceId = getResources().getIdentifier("eid" + i, "drawable", getPackageName());
-                imgsList.add(resourceId);
+            for (int i = 1; i <= 28; i++) {
+                try {
+
+                    int resourceId = getResources().getIdentifier("eid" + i, "drawable", getPackageName());
+                    imgsList.add(resourceId);
+                } catch (Exception e) {
+
+                }
             }
         }
         if (categoryModel.getShortName().equalsIgnoreCase("foot")) {
-            for (int i = 1; i <= 25; i++) {
-                int resourceId = getResources().getIdentifier("foot" + i, "drawable", getPackageName());
-                imgsList.add(resourceId);
+            for (int i = 1; i <= 33; i++) {
+                try {
+
+                    int resourceId = getResources().getIdentifier("foot" + i, "drawable", getPackageName());
+                    imgsList.add(resourceId);
+                } catch (Exception e) {
+
+                }
             }
         }
         if (categoryModel.getShortName().equalsIgnoreCase("fronthand")) {
-            for (int i = 1; i <= 19; i++) {
-                int resourceId = getResources().getIdentifier("fronthand" + i, "drawable", getPackageName());
-                imgsList.add(resourceId);
+            for (int i = 1; i <= 27; i++) {
+                try {
+                    int resourceId = getResources().getIdentifier("fronthand" + i, "drawable", getPackageName());
+                    imgsList.add(resourceId);
+                } catch (Exception e) {
+
+                }
             }
         }
         if (categoryModel.getShortName().equalsIgnoreCase("goltiki")) {
-            for (int i = 1; i <= 15; i++) {
-                int resourceId = getResources().getIdentifier("goltiki" + i, "drawable", getPackageName());
-                imgsList.add(resourceId);
+            for (int i = 1; i <= 23; i++) {
+                try {
+
+                    int resourceId = getResources().getIdentifier("goltiki" + i, "drawable", getPackageName());
+                    imgsList.add(resourceId);
+                } catch (Exception e) {
+
+                }
             }
 
         }
         if (categoryModel.getShortName().equalsIgnoreCase("finger")) {
-            for (int i = 1; i <= 21; i++) {
-                int resourceId = getResources().getIdentifier("finger" + i, "drawable", getPackageName());
-                imgsList.add(resourceId);
-            }
+            for (int i = 1; i <= 29; i++) {
+                try {
+                    int resourceId = getResources().getIdentifier("finger" + i, "drawable", getPackageName());
+                    imgsList.add(resourceId);
 
+                } catch (Exception e) {
+
+                }
+
+            }
         }
     }
 
