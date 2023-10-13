@@ -35,15 +35,15 @@
         <activity android:name=".Activites.SubAct" />
         <activity android:name=".Activites.Settings" />
         <activity android:name=".Activites.ViewCategory" />
-        <activity android:name="com.zik.mehndi.simple.offline.designs.Activites.ViewLiked" />
-        <activity android:name="com.zik.mehndi.simple.offline.designs.Activites.ViewPictures" />
+        <activity android:name="com.amzn.mehndi.simple.offline.designs.Activites.ViewLiked" />
+        <activity android:name="com.amzn.mehndi.simple.offline.designs.Activites.ViewPictures" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-1990673737711650~3927715991" />
+            android:value="ca-app-pub-3289055712013660~3939197315" />
 
     </application>
 

@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.zik.mehndi.simple.offline.designs'
+    namespace 'com.amzn.mehndi.simple.offline.designs'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.zik.mehndi.simple.offline.designs"
+        applicationId "com.amzn.mehndi.simple.offline.designs"
         minSdk 24
         targetSdk 33
         versionCode 5
